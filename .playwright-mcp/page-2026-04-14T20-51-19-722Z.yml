@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Employee Management" [ref=e4] [cursor=pointer]:
+      - /url: index.jsp
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - link "Login" [ref=e7] [cursor=pointer]:
+          - /url: login.jsp
+      - listitem [ref=e8]:
+        - link "Sign Up" [ref=e9] [cursor=pointer]:
+          - /url: signup.jsp
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]: 
+      - text: Employee operations hub
+    - heading "Run employee records with a cleaner, calmer workflow." [level=1] [ref=e15]
+    - paragraph [ref=e16]: Create accounts, manage staff, and control access from one place with a design that keeps the important actions visible and the busywork out of the way.
+    - generic [ref=e17]:
+      - link " Login" [ref=e18] [cursor=pointer]:
+        - /url: login.jsp
+        - generic [ref=e19]: 
+        - text: Login
+      - link " Create Account" [ref=e20] [cursor=pointer]:
+        - /url: signup.jsp
+        - generic [ref=e21]: 
+        - text: Create Account

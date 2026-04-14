@@ -15,41 +15,45 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="card" style="max-width: 500px; margin: 0 auto;">
-			<h2 class="mb-4 text-center">Create Account</h2>
-			<form action="SignupServlet" method="post">
-				<div class="form-group">
-					<label for="name">Name:</label> <input type="text" id="name"
-						name="name" class="form-control" required>
-				</div>
+	<div class="page-shell">
+		<div class="auth-shell auth-shell-single">
+			<div class="card auth-panel">
+				<span class="section-kicker"><i class="fas fa-user-plus"></i> Create account</span>
+				<h2 class="mb-3">Start with a clean employee profile</h2>
+				<p class="hero-copy mb-4">New users default to employee access. If your workspace has not been initialized yet, you can optionally bootstrap the first manager account here.</p>
+				<form action="SignupServlet" method="post">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" class="form-control" required>
+					</div>
 
-				<div class="form-group">
-					<label for="email">Email:</label> <input type="email" id="email"
-						name="email" class="form-control" required>
-				</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" class="form-control" required>
+					</div>
 
-				<div class="form-group">
-					<label for="password">Password:</label> <input type="password"
-						id="password" name="password" class="form-control" required>
-				</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" class="form-control" required>
+					</div>
 
-				<div class="form-group">
-					<label for="role">Role:</label> <select id="role" name="role"
-						class="form-control">
-						<option value="employee">Employee</option>
-						<option value="manager">Manager</option>
-					</select>
-				</div>
+					<div class="form-group">
+						<label>Role</label>
+						<p class="form-control-plaintext mb-2">Employee accounts are the default. Manager setup is only available before the first manager exists.</p>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="managerSetup" name="managerSetup">
+							<label class="form-check-label" for="managerSetup">Create this account as the initial manager</label>
+						</div>
+					</div>
 
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-success">
-						<i class="fas fa-user-plus"></i> Sign Up
-					</button>
-					<a href="login.jsp" class="btn btn-primary">Already have an
-						account?</a>
-				</div>
-			</form>
+					<div class="action-row">
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-user-plus"></i> Sign Up
+						</button>
+						<a href="login.jsp" class="btn btn-primary">Already have an account?</a>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

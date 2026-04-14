@@ -13,16 +13,13 @@ public class SignupServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
+        boolean requestManagerRole = "on".equalsIgnoreCase(request.getParameter("managerSetup"));
 
-        // Try to register user
-        boolean isRegistered = UserDAO.registerUser(name, email, password, role);
+        boolean isRegistered = UserDAO.registerUser(name, email, password, requestManagerRole);
 
         if (isRegistered) {
-            // Redirect to home page with success message
             response.sendRedirect("index.jsp?success=" + java.net.URLEncoder.encode("Signup successful! You can now log in.", "UTF-8"));
         } else {
-            // Redirect back to signup page with error message
             response.sendRedirect("signup.jsp?error=" + java.net.URLEncoder.encode("Signup failed. Email may already exist.", "UTF-8"));
         }
     }

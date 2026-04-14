@@ -1,7 +1,19 @@
-<%@ page import="com.example.Employee"%>
+<%@ page import="com.example.Employee, com.example.EmployeeDAO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<% Employee employee = (Employee) request.getAttribute("employee"); %>
+<%
+	Employee employee = (Employee) request.getAttribute("employee");
+	if (employee == null) {
+		String idParam = request.getParameter("id");
+		if (idParam != null && !idParam.isBlank()) {
+			employee = EmployeeDAO.getEmployeeById(Integer.parseInt(idParam));
+		}
+	}
+	if (employee == null) {
+		response.sendRedirect("listEmployees");
+		return;
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -19,37 +31,36 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="card">
-			<h2 class="mb-4">Edit Employee</h2>
-			<form action="updateEmployee" method="POST">
-				<input type="hidden" name="id" value="<%= employee.getId() %>">
+	<div class="page-shell">
+		<div class="container auth-shell auth-shell-single">
+			<div class="card page-panel">
+				<span class="section-kicker"><i class="fas fa-user-edit"></i> Employee records</span>
+				<h2 class="mb-3">Edit Employee</h2>
+				<p class="hero-copy mb-4">Update the employee profile details below and keep the record current.</p>
+				<form action="updateEmployee" method="POST">
+					<input type="hidden" name="id" value="<%= employee.getId() %>">
 
-				<div class="form-group">
-					<label for="name">Name:</label> <input type="text" id="name"
-						name="name" class="form-control" value="<%= employee.getName() %>"
-						required>
-				</div>
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" class="form-control" value="<%= employee.getName() %>" required>
+					</div>
 
-				<div class="form-group">
-					<label for="email">Email:</label> <input type="email" id="email"
-						name="email" class="form-control"
-						value="<%= employee.getEmail() %>" required>
-				</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" class="form-control" value="<%= employee.getEmail() %>" required>
+					</div>
 
-				<div class="form-group">
-					<label for="phone">Phone:</label> <input type="text" id="phone"
-						name="phone" class="form-control"
-						value="<%= employee.getPhone() %>" required>
-				</div>
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<input type="text" id="phone" name="phone" class="form-control" value="<%= employee.getPhone() %>" required>
+					</div>
 
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-success">
-						<i class="fas fa-save"></i> Update
-					</button>
-					<a href="employeeList.jsp" class="btn btn-danger">Cancel</a>
-				</div>
-			</form>
+					<div class="action-row">
+						<button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Update</button>
+						<a href="listEmployees" class="btn btn-secondary">Cancel</a>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

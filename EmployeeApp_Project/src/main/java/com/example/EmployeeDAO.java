@@ -3,26 +3,23 @@ package com.example;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
 public class EmployeeDAO {
-    private static final SessionFactory factory = new Configuration()
-            .configure("hibernate.cfg.xml")
-            .addAnnotatedClass(Employee.class)
-            .addAnnotatedClass(Address.class)
-            .buildSessionFactory();
+    private static final SessionFactory factory = HibernateUtil.getSessionFactory();
 
-    public static void saveEmployee(Employee employee) {
+    public static boolean saveEmployee(Employee employee) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             session.save(employee);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -38,27 +35,36 @@ public class EmployeeDAO {
         }
     }
 
-    public static void deleteEmployee(int id) {
+    public static boolean deleteEmployee(int id) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             Employee emp = session.get(Employee.class, id);
-            if (emp != null) session.delete(emp);
+            if (emp == null) {
+                transaction.rollback();
+                return false;
+            }
+
+            session.delete(emp);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+            return false;
         }
     }
-    public static void updateEmployee(Employee employee) {
+    public static boolean updateEmployee(Employee employee) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             session.update(employee);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+            return false;
         }
     }
 

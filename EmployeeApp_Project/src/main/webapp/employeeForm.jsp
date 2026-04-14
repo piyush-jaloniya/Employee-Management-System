@@ -16,9 +16,11 @@
 	</div>
 
 	<div class="container">
-		<div class="card">
-			<h2 class="mb-4 text-center">Employee Registration Form</h2>
-			<form action="employee" method="POST">
+		<div class="card page-panel">
+			<span class="section-kicker"><i class="fas fa-user-plus"></i> Employee records</span>
+			<h2 class="mb-3 text-center">Employee Registration</h2>
+			<p class="hero-copy text-center mb-4">Capture the core identity and address details in one clean step.</p>
+			<form action="EmployeeServlet" method="POST">
 				<div class="form-group">
 					<label for="name">Name:</label> <input type="text" id="name"
 						name="name" class="form-control" required>
@@ -57,10 +59,8 @@
 				</div>
 
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary">
-						<i class="fas fa-save"></i> Submit
-					</button>
-					<a href="index.jsp" class="btn btn-danger">Cancel</a>
+					<button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+					<a href="managerDashboard.jsp" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
 		</div>

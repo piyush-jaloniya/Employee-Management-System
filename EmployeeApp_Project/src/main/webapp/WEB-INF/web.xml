@@ -21,7 +21,7 @@
 	<!-- Error Pages -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/error404.jsp</location>
+		<location>/404.jsp</location>
 	</error-page>
 
 

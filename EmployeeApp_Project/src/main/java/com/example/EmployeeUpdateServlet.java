@@ -10,18 +10,32 @@ public class EmployeeUpdateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String idParam = request.getParameter("id");
+        if (idParam == null || idParam.isBlank()) {
+            response.sendRedirect("listEmployees");
+            return;
+        }
+
+        int id = Integer.parseInt(idParam);
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
 
         Employee employee = EmployeeDAO.getEmployeeById(id);  // Fixed method name
+        if (employee == null) {
+            response.sendRedirect("listEmployees");
+            return;
+        }
         employee.setName(name);
         employee.setEmail(email);
         employee.setPhone(phone);
 
-        EmployeeDAO.updateEmployee(employee);  // Method added in DAO
+        boolean updated = EmployeeDAO.updateEmployee(employee);  // Method added in DAO
 
-        response.sendRedirect("listEmployees");  // Redirect back to the employee list
+        if (updated) {
+            response.sendRedirect("listEmployees");  // Redirect back to the employee list
+        } else {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to update employee");
+        }
     }
 }

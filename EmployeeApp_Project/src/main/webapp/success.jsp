@@ -15,16 +15,18 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="card text-center"
-			style="max-width: 500px; margin: 0 auto;">
-			<div class="alert alert-success">
-				<i class="fas fa-check-circle fa-2x mb-3"></i>
-				<h3>${message}</h3>
+	<div class="page-shell-tight">
+		<div class="container auth-shell auth-shell-compact">
+			<div class="card page-panel text-center">
+				<span class="section-kicker"><i class="fas fa-check-circle"></i> Completed</span>
+				<h1 class="hero-title hero-title-sm">Success</h1>
+				<div class="alert alert-success">
+					<i class="fas fa-check-circle fa-2x mb-3"></i>
+					<h3>${message}</h3>
+				</div>
+				<p class="page-note mb-4">Your request finished successfully. You can return home or keep working from the dashboard.</p>
+				<a href="index.jsp" class="btn btn-primary"><i class="fas fa-home"></i> Go to Home</a>
 			</div>
-			<a href="index.jsp" class="btn btn-primary"> <i
-				class="fas fa-home"></i> Go to Home
-			</a>
 		</div>
 	</div>
 </body>

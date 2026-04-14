@@ -48,8 +48,12 @@ public class EmployeeServlet extends HttpServlet {
             }
             return;
         }
-        EmployeeDAO.saveEmployee(employee);
-        response.sendRedirect("listEmployees"); // Redirect to employee list
+        boolean saved = EmployeeDAO.saveEmployee(employee);
+        if (saved) {
+            response.sendRedirect("listEmployees"); // Redirect to employee list
+        } else {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to save employee");
+        }
     }
 }
 

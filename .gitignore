@@ -1,0 +1,138 @@
+# Maven build artifacts
+target/
+*.jar
+*.war
+*.ear
+*.zip
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+# Compiled class files
+*.class
+*.classpath
+
+# Eclipse IDE
+.classpath
+.project
+.settings/
+bin/
+.metadata/
+*.jars
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.idp
+.gradle/
+*.hprof
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NetBeans
+nbproject/
+.nb-gradle/
+*.nbactions.xml
+
+# Vim swap files
+*.swp
+*.swo
+*~
+.vim/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+.windows/
+
+# H2 Database files (local runtime)
+data/
+*.db
+*.mv.db
+*.trace.db
+*.log
+
+# Tomcat build/run artifacts
+EmployeeApp_Project/target/
+*.war.extracted
+
+# System files
+.env
+.env.local
+.env.*.local
+secrets/
+
+# IDE temporary files
+*.tmp
+*.bak
+*.backup
+
+# OS generated files
+.cache/
+.tmp/
+
+# Java-specific
+.factorypath
+.jcache/
+
+# Build logs
+*.log
+logs/
+
+# Node/npm (if using frontend build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Gradle (if using Gradle instead of Maven)
+.gradle/
+gradle/
+*.gradle
+
+# Python (if using Python utilities)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Misc
+.cache
+.markers
+*.pid
+.ruby-version
+
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Compiled output (Java)
+out/
+bin/
+
+# Maven specific
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+# Temporary project files
+.classpath_*
+.project_*

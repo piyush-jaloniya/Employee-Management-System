@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - link "Employee Management" [ref=e4] [cursor=pointer]:
+    - /url: index.jsp
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: 
+        - text: Create account
+      - heading "Start with a clean employee profile" [level=2] [ref=e10]
+      - paragraph [ref=e11]: New users default to employee access. If your workspace has not been initialized yet, you can optionally bootstrap the first manager account here.
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: Name
+          - textbox "Name" [ref=e15]
+        - generic [ref=e16]:
+          - generic [ref=e17]: Email
+          - textbox "Email" [ref=e18]
+        - generic [ref=e19]:
+          - generic [ref=e20]: Password
+          - textbox "Password" [ref=e21]
+        - generic [ref=e22]:
+          - generic [ref=e23]: Role
+          - paragraph [ref=e24]: Employee accounts are the default. Manager setup is only available before the first manager exists.
+          - generic [ref=e25]:
+            - checkbox "Create this account as the initial manager" [ref=e26]
+            - generic [ref=e27]: Create this account as the initial manager
+        - generic [ref=e28]:
+          - button " Sign Up" [ref=e29] [cursor=pointer]:
+            - generic [ref=e30]: 
+            - text: Sign Up
+          - link "Already have an account?" [ref=e31] [cursor=pointer]:
+            - /url: login.jsp
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]: 
+        - text: Access model
+      - heading "Simple by default, protected by design" [level=3] [ref=e35]
+      - list [ref=e36]:
+        - listitem [ref=e37]:
+          - generic [ref=e38]: 
+          - generic [ref=e39]: Employee accounts can use the dashboard immediately after signup.
+        - listitem [ref=e40]:
+          - generic [ref=e41]: 
+          - generic [ref=e42]: Managers can promote users later from the role management screen.
+        - listitem [ref=e43]:
+          - generic [ref=e44]: 
+          - generic [ref=e45]: Every password is stored as a secure hash.

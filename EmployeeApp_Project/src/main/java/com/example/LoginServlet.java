@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
 
         User user = UserDAO.getUserByEmail(email);
 
-        if (user != null && password.equals(user.getPassword())) {
+        if (user != null && PasswordUtil.verifyPassword(password, user.getPassword())) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 

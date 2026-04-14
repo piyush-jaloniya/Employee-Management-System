@@ -9,9 +9,10 @@ public class HibernateUtil {
     static {
         try {
             sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        } catch (Exception e) {
+        } catch (Throwable e) {
+            System.err.println("FATAL: Hibernate initialization failed!");
             e.printStackTrace();
-            throw new ExceptionInInitializerError("Hibernate initialization failed!");
+            throw new ExceptionInInitializerError("Hibernate initialization failed! Caused by: " + e.getMessage());
         }
     }
 

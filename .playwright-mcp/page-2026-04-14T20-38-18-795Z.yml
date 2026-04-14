@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Employee Management" [ref=e4] [cursor=pointer]:
+      - /url: index.jsp
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - link " Logout" [ref=e7] [cursor=pointer]:
+          - /url: logout.jsp
+          - generic [ref=e8]: 
+          - text: Logout
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: 
+      - text: Employee workspace
+    - heading "Welcome, Playwright Tester!" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Your profile is ready. This dashboard keeps your account details visible without overwhelming you with unrelated controls.
+    - paragraph [ref=e15]:
+      - text: "Access level:"
+      - generic [ref=e16]: Employee
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: 
+        - heading "Email contact" [level=3] [ref=e20]
+        - paragraph [ref=e21]: playwright.tester.4152026@example.com
+      - generic [ref=e22]:
+        - generic [ref=e23]: 
+        - heading "Protected access" [level=3] [ref=e24]
+        - paragraph [ref=e25]: Access is filtered by role, so only employee-safe options appear here.
+    - generic [ref=e26]:
+      - heading " Your Profile" [level=3] [ref=e27]:
+        - generic [ref=e28]: 
+        - text: Your Profile
+      - list [ref=e29]:
+        - listitem [ref=e30]:
+          - strong [ref=e31]: "Name:"
+          - text: Playwright Tester
+        - listitem [ref=e32]:
+          - strong [ref=e33]: "Email:"
+          - text: playwright.tester.4152026@example.com
+        - listitem [ref=e34]:
+          - strong [ref=e35]: "Role:"
+          - generic [ref=e36]: Employee
+    - link " Logout" [ref=e38] [cursor=pointer]:
+      - /url: logout.jsp
+      - generic [ref=e39]: 
+      - text: Logout
