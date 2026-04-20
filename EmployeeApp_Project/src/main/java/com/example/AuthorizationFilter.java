@@ -19,6 +19,7 @@ public class AuthorizationFilter implements Filter {
     private static final Set<String> MANAGER_ONLY_PATHS = Set.of(
             "/managerDashboard.jsp",
             "/manageRoles.jsp",
+            "/manageRoles",
             "/employeeList.jsp",
             "/employeeForm.jsp",
             "/editEmployee.jsp",
@@ -82,7 +83,7 @@ public class AuthorizationFilter implements Filter {
                 || "/LoginServlet".equals(path)
                 || "/SignupServlet".equals(path)
                 || "/logout.jsp".equals(path)
-                || "/error404.jsp".equals(path);
+                || "/404.jsp".equals(path);
     }
 
     private boolean isStaticResource(String path) {

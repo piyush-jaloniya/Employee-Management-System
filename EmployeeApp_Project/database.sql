@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    department VARCHAR(100),
+    department VARCHAR(100), 
     salary DECIMAL(10,2),
     manager_id INT,
     FOREIGN KEY (manager_id) REFERENCES users(id) ON DELETE SET NULL

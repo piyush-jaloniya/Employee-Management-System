@@ -50,7 +50,7 @@
 						<td><%= emp.getId() %></td>
 						<td><%= emp.getName() %></td>
 						<td><%= emp.getEmail() %></td>
-						<td><%= emp.getPhone() %></td>
+						<td><%= emp.getPhone() == null || emp.getPhone().isBlank() ? "-" : emp.getPhone() %></td>
 						<td><a href="editEmployee?id=<%= emp.getId() %>"
 							class="btn btn-sm btn-primary"> <i class="fas fa-edit"></i>
 								Edit

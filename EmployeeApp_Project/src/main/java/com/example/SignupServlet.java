@@ -18,7 +18,11 @@ public class SignupServlet extends HttpServlet {
         boolean isRegistered = UserDAO.registerUser(name, email, password, requestManagerRole);
 
         if (isRegistered) {
-            response.sendRedirect("index.jsp?success=" + java.net.URLEncoder.encode("Signup successful! You can now log in.", "UTF-8"));
+            // Keep manager-facing employee records aligned with employee account signups.
+            if (!requestManagerRole) {
+                EmployeeDAO.createEmployeeIfMissing(name, email);
+            }
+            response.sendRedirect("login.jsp?success=" + java.net.URLEncoder.encode("Signup successful! You can now log in.", "UTF-8"));
         } else {
             response.sendRedirect("signup.jsp?error=" + java.net.URLEncoder.encode("Signup failed. Email may already exist.", "UTF-8"));
         }

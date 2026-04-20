@@ -22,7 +22,7 @@ public class PromoteManagerServlet extends HttpServlet {
 
         String idParam = request.getParameter("userId");
         if (idParam == null || idParam.isBlank()) {
-            response.sendRedirect("manageRoles.jsp?error=" + java.net.URLEncoder.encode("Invalid user id", "UTF-8"));
+            response.sendRedirect("manageRoles?error=" + java.net.URLEncoder.encode("Invalid user id", "UTF-8"));
             return;
         }
 
@@ -31,14 +31,14 @@ public class PromoteManagerServlet extends HttpServlet {
             int userId = Integer.parseInt(idParam);
             promoted = UserDAO.promoteUserToManager(userId);
         } catch (NumberFormatException ex) {
-            response.sendRedirect("manageRoles.jsp?error=" + java.net.URLEncoder.encode("Invalid user id", "UTF-8"));
+            response.sendRedirect("manageRoles?error=" + java.net.URLEncoder.encode("Invalid user id", "UTF-8"));
             return;
         }
 
         if (promoted) {
-            response.sendRedirect("manageRoles.jsp?success=" + java.net.URLEncoder.encode("User promoted to manager", "UTF-8"));
+            response.sendRedirect("manageRoles?success=" + java.net.URLEncoder.encode("User promoted to manager", "UTF-8"));
         } else {
-            response.sendRedirect("manageRoles.jsp?error=" + java.net.URLEncoder.encode("Unable to promote user", "UTF-8"));
+            response.sendRedirect("manageRoles?error=" + java.net.URLEncoder.encode("Unable to promote user", "UTF-8"));
         }
     }
 }

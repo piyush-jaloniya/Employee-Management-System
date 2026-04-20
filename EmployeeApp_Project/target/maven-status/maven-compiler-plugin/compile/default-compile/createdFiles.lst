@@ -1,6 +1,7 @@
 com\example\EmployeeListServlet.class
 com\example\AuthorizationFilter.class
 com\example\HibernateUtil.class
+com\example\ManageRolesServlet.class
 com\example\Address.class
 com\example\User.class
 com\example\EmployeeEditServlet.class

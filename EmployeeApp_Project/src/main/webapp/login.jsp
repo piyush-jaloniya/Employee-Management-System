@@ -21,6 +21,20 @@
 				<span class="section-kicker"><i class="fas fa-sign-in-alt"></i> Secure sign in</span>
 				<h2 class="mb-3">Login to your account</h2>
 				<p class="hero-copy mb-4">Use your registered email and password to enter the dashboard assigned to your role.</p>
+				<%
+					String loginSuccess = request.getParameter("success");
+					String loginMessage = request.getParameter("msg");
+					if (loginSuccess != null && !loginSuccess.trim().isEmpty()) {
+				%>
+					<div class="alert alert-success"><%= loginSuccess %></div>
+				<%
+					}
+					if (loginMessage != null && !loginMessage.trim().isEmpty()) {
+				%>
+					<div class="alert alert-danger"><%= loginMessage %></div>
+				<%
+					}
+				%>
 				<form action="LoginServlet" method="post">
 					<div class="form-group">
 						<label for="email">Email</label>

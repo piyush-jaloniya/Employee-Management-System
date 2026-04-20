@@ -21,6 +21,20 @@
 				<span class="section-kicker"><i class="fas fa-user-plus"></i> Create account</span>
 				<h2 class="mb-3">Start with a clean employee profile</h2>
 				<p class="hero-copy mb-4">New users default to employee access. If your workspace has not been initialized yet, you can optionally bootstrap the first manager account here.</p>
+				<%
+					String signupSuccess = request.getParameter("success");
+					String signupError = request.getParameter("error");
+					if (signupSuccess != null && !signupSuccess.trim().isEmpty()) {
+				%>
+					<div class="alert alert-success"><%= signupSuccess %></div>
+				<%
+					}
+					if (signupError != null && !signupError.trim().isEmpty()) {
+				%>
+					<div class="alert alert-danger"><%= signupError %></div>
+				<%
+					}
+				%>
 				<form action="SignupServlet" method="post">
 					<div class="form-group">
 						<label for="name">Name</label>

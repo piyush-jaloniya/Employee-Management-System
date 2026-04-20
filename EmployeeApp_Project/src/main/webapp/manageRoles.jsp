@@ -1,5 +1,4 @@
 <%@ page import="com.example.User" %>
-<%@ page import="com.example.UserDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -10,7 +9,7 @@
         return;
     }
 
-    List<User> users = UserDAO.getAllUsers();
+    List<User> users = (List<User>) request.getAttribute("users");
     String success = request.getParameter("success");
     String error = request.getParameter("error");
 %>
@@ -59,24 +58,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                <% for (User u : users) { %>
+                <% if (users == null || users.isEmpty()) { %>
                     <tr>
-                        <td><%= u.getId() %></td>
-                        <td><%= u.getName() %></td>
-                        <td><%= u.getEmail() %></td>
-                        <td><%= u.getRole() %></td>
-                        <td>
-                            <% if ("manager".equalsIgnoreCase(u.getRole())) { %>
-                                <span class="badge bg-success">Manager</span>
-                            <% } else { %>
-                                <form action="promoteManager" method="post" class="form-inline">
-                                    <input type="hidden" name="userId" value="<%= u.getId() %>">
-                                    <button type="submit" class="btn btn-sm btn-warning">Promote to Manager</button>
-                                </form>
-                            <% } %>
-                        </td>
+                        <td colspan="5" class="text-center">No users found.</td>
                     </tr>
-                <% } %>
+                <% } else {
+                    for (User u : users) { %>
+                        <tr>
+                            <td><%= u.getId() %></td>
+                            <td><%= u.getName() %></td>
+                            <td><%= u.getEmail() %></td>
+                            <td><%= u.getRole() %></td>
+                            <td>
+                                <% if ("manager".equalsIgnoreCase(u.getRole())) { %>
+                                    <span class="badge bg-success">Manager</span>
+                                <% } else { %>
+                                    <form action="promoteManager" method="post" class="form-inline">
+                                        <input type="hidden" name="userId" value="<%= u.getId() %>">
+                                        <button type="submit" class="btn btn-sm btn-warning">Promote to Manager</button>
+                                    </form>
+                                <% } %>
+                            </td>
+                        </tr>
+                <%  }
+                   } %>
                 </tbody>
             </table>
 

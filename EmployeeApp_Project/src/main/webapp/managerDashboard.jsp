@@ -65,7 +65,7 @@
 			<div class="card mb-4">
 				<h3 class="mb-3"><i class="fas fa-user-shield"></i> Access Control</h3>
 				<p class="mb-3 page-note">Use role management to promote existing users without exposing that action to employees.</p>
-				<a href="manageRoles.jsp" class="btn btn-warning"><i class="fas fa-user-cog"></i> Manage User Roles</a>
+				<a href="manageRoles" class="btn btn-warning"><i class="fas fa-user-cog"></i> Manage User Roles</a>
 			</div>
 
 			<div class="card">
